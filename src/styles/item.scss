@@ -11,7 +11,7 @@
     margin-top: 4rem;
 
     >div{
-        width: 15%;
+        // width: 15%;
         height: 5rem;
         padding: 0.5rem;
         display: flex;
@@ -89,6 +89,7 @@
         }
         >button{
         font-weight: 0;
+        font-size: 0.6rem;
         padding: 0.2rem;
         }
     }
@@ -98,7 +99,9 @@
 @media screen and (max-width:350px) {
     .CompleteInfo{
         width: 100%;
-        >.item>div>h3{
+        >.item>div{
+        width: 15%;
+        >h3{
         font-size: 0.7rem;
         }
         >p{
@@ -106,4 +109,4 @@
         }
     }
 }
-
+ }
