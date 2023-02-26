@@ -24,7 +24,7 @@ const Item = ({info}) => {
         <p>{info.address.street}</p>
       </div>
       <div className='button'>
-        <button onClick={()=>setBtn(!btn)} >{btn?"View Details":"Hide Details"}</button>
+        <button onClick={()=>setBtn(!btn)} >{btn?"View":"Hide"}</button>
       </div>
     </div>
     <div className='showDetails' >
