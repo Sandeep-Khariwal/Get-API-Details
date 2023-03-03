@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Item from './components/Item';
+import Item from './components/Item'; 
 
 import './App.scss';
 import "./styles/item.scss"
@@ -15,13 +15,20 @@ function App() {
   var [newUser , setNewUSer] = useState([])
 
   useEffect(()=>{
-      getUSer(url)
-      const data = user.slice(prev,next)
-      setNewUSer(data)
+    const innerFunction = async(url) =>{
+      const data = await getUSer(url)
+      setUser(data)
+      console.log(data);
+      const res = data.slice(prev,next)
+      setNewUSer(res)
+    }
+
+    innerFunction(url)
+      
   },[url])
 
   const getUSer = async(url)=>{
-    await axios.get(url).then((res)=> setUser(res.data))
+    return await axios.get(url).then((res)=> res.data)
   }
 
 
@@ -33,6 +40,9 @@ function App() {
     const data = user.slice(prev,next)
     setNewUSer(data)
   }
+  else{
+    alert("No more previous Page")
+  }
  
 }
   const nextPage = ()=>{
@@ -42,6 +52,9 @@ function App() {
     setPrev(prev+=3)
     const data = user.slice(prev,next)
     setNewUSer(data)
+    }
+    else{
+      alert("this is Last Page")
     }
   }
 
